@@ -1,0 +1,39 @@
+<header>
+    <span class="title">
+        <mat-icon inline="true">local_cafe</mat-icon>
+        <span class="text">AcuCafe</span>
+    </span>
+    <mat-icon>account_circle</mat-icon>
+</header>
+
+<h1>Welcome to the AcuCafe!</h1>
+
+<div class="main">
+    <h2>What would you like to drink?</h2>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Drink</mat-label>
+        <mat-select [(value)]="selectedDrink">
+            <mat-option *ngFor="let drink of drinks" [value]="drink">{{drink}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-slide-toggle color="primary" [(ngModel)]="hasMilk">Milk</mat-slide-toggle>
+    <mat-slide-toggle color="primary" [(ngModel)]="hasSugar">Sugar</mat-slide-toggle>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <mat-select [(value)]="selectedQuantity">
+            <mat-option *ngFor="let n of quantities" [value]="n">{{n}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button (click)="processOrder()" mat-flat-button color="primary">Place Order</button>
+</div>
+
+<div *ngIf="showSummary">
+    <h2>Order Summary</h2>
+      <ul>
+        <li *ngFor="let summary of summaryList">{{summary}}</li>
+      </ul>
+</div>

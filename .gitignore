@@ -1,0 +1,5 @@
+.vs/
+bin/
+ClientApp/node_modules/
+obj/
+*.csproj.user
